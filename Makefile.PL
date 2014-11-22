@@ -7,13 +7,15 @@ WriteMakefile(
     AUTHOR           => q{Henk van Oers <hvo.pm@xs4all.nl>},
     VERSION_FROM     => 'lib/Dancer2/Plugin/Passphrase.pm',
     ABSTRACT_FROM    => 'lib/Dancer2/Plugin/Passphrase.pm',
-    ($ExtUtils::MakeMaker::VERSION >= 6.3002
+    ($ExtUtils::MakeMaker::VERSION >= 6.48
       ? ('LICENSE'=> 'perl')
       : ()),
+    MIN_PERL_VERSION => 5.010001,
     PL_FILES         => {},
     PREREQ_PM => {
         'Test::More' => 0,
-        'Dancer2'    => 0.151000,
+        'Dancer2'    => 0.153002,
+        'Module::Pluggable' => 5.1,
         'Digest::Bcrypt' => 0,
         'Digest::SHA' => 5.74,
         'Data::Entropy' => 0.007,

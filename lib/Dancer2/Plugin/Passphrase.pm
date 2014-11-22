@@ -1,5 +1,9 @@
 package Dancer2::Plugin::Passphrase;
 
+use 5.010001;
+use strict;
+use warnings;
+
 # ABSTRACT: Passphrases and Passwords as objects for Dancer2
 
 =head1 NAME
@@ -51,8 +55,6 @@ You can add extra checks in your "MyWebService".
 
 =cut
 
-use strict;
-
 use Dancer2::Plugin;
 
 use Carp qw(carp croak);
@@ -61,7 +63,7 @@ use Digest;
 use MIME::Base64 qw(decode_base64 encode_base64);
 use Scalar::Util qw(blessed);
 
-our $VERSION = '2.0.3';
+our $VERSION = '2.0.4';
 
 # Auto stringifies and returns the RFC 2307 representation
 # of the object unless we are calling a method on it
