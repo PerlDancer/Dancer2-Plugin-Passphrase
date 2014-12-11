@@ -1,13 +1,10 @@
-use Test::More tests => 3;
-
 use strict;
 use warnings;
-
+use Test::More tests => 3;
 use Dancer2;
 use Dancer2::Plugin::Passphrase;
 
-my $secret = "Super Secret Squirrel";
-
+my $secret  = "Super Secret Squirrel";
 my $rfc2307 = passphrase($secret)->generate->rfc2307;
 
 like($rfc2307, qr/^{CRYPT}\$2a\$04\$/,      'RFC compliant hash generated');

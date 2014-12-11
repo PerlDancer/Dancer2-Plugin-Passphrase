@@ -11,7 +11,7 @@ my $secret = "Super Secret Squirrel";
 
 my $object = passphrase($secret)->generate;
 
-ok(ref($object) eq 'Dancer2::Plugin::Passphrase', 'Creates correct object');
+isa_ok( $object, 'Dancer2::Plugin::Passphrase::Hashed' );
 ok($object->rfc2307,                              'Contains RFC 2307 representation');
 ok($object->algorithm  eq 'Bcrypt',               'Contains correct scheme');
 ok($object->cost       eq '04',                   'Contains correct cost');
