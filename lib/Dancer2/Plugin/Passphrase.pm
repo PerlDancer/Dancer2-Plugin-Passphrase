@@ -3,8 +3,13 @@ package Dancer2::Plugin::Passphrase;
 use 5.010001;
 use strict;
 use warnings;
+use Dancer2::Plugin;
 use Dancer2::Plugin::Passphrase::Core;
 use Dancer2::Plugin::Passphrase::Hashed;
+
+our $VERSION = '2.0.5';
+
+register passphrase => \&passphrase;
 
 # ABSTRACT: Passphrases and Passwords as objects for Dancer2
 
@@ -55,22 +60,11 @@ This package does no checking about how secure the password is,
 minimum length or anything, including a length of 0 being valid.
 You can add extra checks in your "MyWebService".
 
-=cut
-
-use Dancer2::Plugin;
-
-use Carp qw(croak);
-use Data::Entropy::Algorithms qw(rand_bits rand_int);
-
-our $VERSION = '2.0.4';
-
-register passphrase => \&passphrase;
-
 =head1 KEYWORDS
 
 =head2 passphrase
 
-Given a plaintext password, it returns a Dancer2::Plugin::Passphrase 
+Given a plaintext password, it returns a Dancer2::Plugin::Passphrase::Core
 object that you can generate a new hash from, or match against a stored hash.
 
 =cut
@@ -88,6 +82,12 @@ sub passphrase {
         %{$settings},
     );
 }
+
+register_plugin;
+
+1;
+
+__END__
 
 =head1 MAIN METHODS
 
@@ -117,7 +117,7 @@ This is not recommended, and should only be used to upgrade old insecure hashes
         salt       => '',   # Manually specify salt if using a salted digest
     });
 
-=cut
+It returns a Dancer2::Plugin::Passphrase::Hashed object.
 
 =head2 matches
 
@@ -148,10 +148,6 @@ A complete RFC2307 string looks like this:
 
 This is the format created by L<generate()|/"passphrase__generate">
 
-=cut
-
-
-
 =head2 generate_random
 
 Generates and returns any number of cryptographically random
@@ -170,10 +166,6 @@ used by passing a hashref of options.
         charset => ['a'..'z', 'A'..'Z'],
     });
 
-=cut
-
-
-
 =head1 ADDITIONAL METHODS
 
 The methods are only applicable once you have called C<generate>
@@ -189,8 +181,6 @@ Returns the rfc2307 representation from a C<Dancer2::Plugin::Passphrase> object.
 
     passphrase('my password')->generate->rfc2307;
 
-=cut
-
 =head2 scheme
 
 Returns the scheme name from a C<Dancer2::Plugin::Passphrase> object.
@@ -204,9 +194,6 @@ The scheme name can be any of the following, and will always be capitalized
     SMD5  SSHA  SSHA224  SSHA256  SSHA384  SSHA512  CRYPT
     MD5   SHA   SHA224   SHA256   SHA384   SHA512
 
-=cut
-
-
 =head2 algorithm
 
 Returns the algorithm name from a C<Dancer2::Plugin::Passphrase> object.
@@ -216,18 +203,12 @@ This includes any modules in the C<Digest::> Namespace
 
     passphrase('my password')->generate->algorithm;
 
-=cut
-
-
 =head2 cost
 
 Returns the bcrypt cost from a C<Dancer2::Plugin::Passphrase> object.
 Only works when using the bcrypt algorithm, returns undef for other algorithms
 
     passphrase('my password')->generate->cost;
-
-=cut
-
 
 =head2 salt_raw
 
@@ -239,17 +220,11 @@ Can be defined, but false - The empty string is technically a valid salt.
 
 Returns C<undef> if there is no salt.
 
-=cut
-
-
 =head2 hash_raw
 
 Returns the raw hash from a C<Dancer2::Plugin::Passphrase> object.
 
     passphrase('my password')->generate->hash_raw;
-
-=cut
-
 
 =head2 salt_hex
 
@@ -260,16 +235,11 @@ Returns C<undef> if there is no salt.
 
     passphrase('my password')->generate->salt_hex;
 
-=cut
-
-
 =head2 hash_hex
 
 Returns the hex-encoded hash from a C<Dancer2::Plugin::Passphrase> object.
 
     passphrase('my password')->generate->hash_hex;
-
-=cut
 
 =head2 salt_base64
 
@@ -280,30 +250,17 @@ Returns C<undef> if there is no salt.
 
     passphrase('my password')->generate->salt_base64;
 
-=cut
-
-
 =head2 hash_base64
 
 Returns the base64 encoded hash from a C<Dancer2::Plugin::Passphrase> object.
 
     passphrase('my password')->generate->hash_base64;
 
-=cut
-
-
 =head2 plaintext
 
 Returns the plaintext password as originally supplied to the L<passphrase> keyword.
 
     passphrase('my password')->generate->plaintext;
-
-=cut
-
-
-register_plugin;
-
-1;
 
 
 =head1 MORE INFORMATION
@@ -491,7 +448,17 @@ L<Dancer2>, L<Digest>, L<Crypt::Eksblowfish::Bcrypt>
 
 =head1 AUTHOR
 
-Henk van Oers <hvoers@cpan.org>
+Maintainer: Henk van Oers <hvoers@cpan.org>
+
+=head1 ACKNOWLEDGMENTS
+
+=over
+
+=item James Aitken for his D1 version.
+
+=item Sawyer X for his D2 magic.
+
+=back
 
 =head1 COPYRIGHT AND LICENSE
 
