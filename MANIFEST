@@ -1,6 +1,5 @@
 .travis.yml
 CHANGES
-Dancer2-Plugin-Passphrase-2.0.6.tar.gz
 dist.ini
 lib/Dancer2/Plugin/Passphrase.pm
 lib/Dancer2/Plugin/Passphrase/Core.pm
@@ -18,6 +17,5 @@ t/006_return_object.t
 t/007_no_salt.t
 t/008_unicode_matching.t
 t/009_exception_handling.t
-t/010_auto_stringification.t
 t/011_alternative_bcrypt.t
 t/013_hashes_generated_elsewhere.t
