@@ -1,5 +1,6 @@
 .travis.yml
 CHANGES
+Dancer2-Plugin-Passphrase-2.0.6.tar.gz
 dist.ini
 lib/Dancer2/Plugin/Passphrase.pm
 lib/Dancer2/Plugin/Passphrase/Core.pm
