@@ -7,7 +7,7 @@ use Dancer2::Plugin;
 use Dancer2::Plugin::Passphrase::Core;
 use Dancer2::Plugin::Passphrase::Hashed;
 
-our $VERSION = '2.0.5';
+our $VERSION = '2.0.6';
 
 register passphrase => \&passphrase;
 
@@ -60,6 +60,11 @@ This package does no checking about how secure the password is,
 minimum length or anything, including a length of 0 being valid.
 You can add extra checks in your "MyWebService".
 
+=head1 AUTO STRINGIFICATION IS DEPRECATED
+
+This version brings back the overloading but it will carp!
+You must use $phrase->rfc2307() to get a text string.
+
 =head1 KEYWORDS
 
 =head2 passphrase
@@ -96,11 +101,9 @@ __END__
 Generates an RFC 2307 representation of the hashed passphrase
 that is suitable for storage in a database.
 
-    my $pass = passphrase('my passphrase')->generate;
+    my $phrase = passphrase('my passphrase')->generate;
 
-You should store C<$phrase->rfc_2307()> in your database. For convenience
-the object will automagically return the RFC 2307 representation when no
-method is called on it.
+You should store C<$phrase->rfc_2307()> in your database.
 
 Accepts a hashref of options to specify what kind of hash should be 
 generated. All options settable in the config file are valid.

@@ -1,3 +1,9 @@
+2.0.6   2014-12-16
+
+    [ AUTO STRINGIFICATION IS DEPRECATED ]
+This version brings back the overloading but it will carp!
+You must use $phrase->rfc2307() to get a text string.
+
 2.0.5   2014-12-12
 
     [ Sawyer X ]

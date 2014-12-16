@@ -182,9 +182,6 @@ sub generate_random {
 sub matches {
     my ($self, $stored_hash) = @_;
 
-    # Force auto stringification in case we were passed an object.
-    ($stored_hash) = ($stored_hash =~ m/(.*)/s);
-
     my $settings = $self->_extract_settings($stored_hash);
     my $new_hash = $self->_calculate_hash($settings)->rfc2307;
 
