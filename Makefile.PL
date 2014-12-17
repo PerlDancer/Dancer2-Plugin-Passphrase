@@ -15,13 +15,12 @@ WriteMakefile(
     PREREQ_PM => {
         'Test::More' => 0,
         'Dancer2'    => 0.153002,
-        'Module::Pluggable' => 5.1,
         'Digest::Bcrypt' => 0,
         'Digest::SHA' => 5.74,
         'Data::Entropy' => 0.007,
     },
     dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
-    clean => { FILES => 'Dancer-Plugin-Passphrase-*' },
+    clean => { FILES => 'Dancer2-Plugin-Passphrase-*' },
     META_MERGE => {
         resources => {
             repository => 'https://github.com/hvoers/Dancer2-Plugin-Passphrase',
