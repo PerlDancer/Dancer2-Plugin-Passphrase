@@ -7,7 +7,7 @@ use Dancer2::Plugin;
 use Dancer2::Plugin::Passphrase::Core;
 use Dancer2::Plugin::Passphrase::Hashed;
 
-our $VERSION = '2.0.6';
+our $VERSION = '3.0.0';
 
 register passphrase => \&passphrase;
 
@@ -60,9 +60,8 @@ This package does no checking about how secure the password is,
 minimum length or anything, including a length of 0 being valid.
 You can add extra checks in your "MyWebService".
 
-=head1 AUTO STRINGIFICATION IS DEPRECATED
+=head1 AUTO STRINGIFICATION IS REMOVED
 
-This version brings back the overloading but it will carp!
 You must use $phrase->rfc2307() to get a text string.
 
 =head1 KEYWORDS

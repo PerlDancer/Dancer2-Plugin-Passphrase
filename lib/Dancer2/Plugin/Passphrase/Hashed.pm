@@ -1,18 +1,7 @@
 package Dancer2::Plugin::Passphrase::Hashed;
 use strict;
 use warnings;
-use Carp qw(carp);
 use MIME::Base64 qw(encode_base64);
-
-use overload (
-    '""' => sub {
-        if (blessed($_[0]) && $_[0]->isa('Dancer2::Plugin::Passphrase::Hashed')) {
-            carp 'Auto stringification is deprecated. Use ->rfc2307()';
-            $_[0]->rfc2307();
-        }
-    },
-    fallback => 1,
-);
 
 sub new {
     my $class = shift;
