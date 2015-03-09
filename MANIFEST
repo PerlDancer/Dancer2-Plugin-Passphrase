@@ -1,6 +1,4 @@
-.travis.yml
 CHANGES
-dist.ini
 lib/Dancer2/Plugin/Passphrase.pm
 lib/Dancer2/Plugin/Passphrase/Core.pm
 lib/Dancer2/Plugin/Passphrase/Hashed.pm

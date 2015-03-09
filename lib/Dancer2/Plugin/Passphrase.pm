@@ -7,7 +7,7 @@ use Dancer2::Plugin;
 use Dancer2::Plugin::Passphrase::Core;
 use Dancer2::Plugin::Passphrase::Hashed;
 
-our $VERSION = '3.0.0';
+our $VERSION = '3.0.1';
 
 register passphrase => \&passphrase;
 
