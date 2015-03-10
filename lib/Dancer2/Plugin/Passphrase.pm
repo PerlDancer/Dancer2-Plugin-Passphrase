@@ -7,7 +7,7 @@ use Dancer2::Plugin;
 use Dancer2::Plugin::Passphrase::Core;
 use Dancer2::Plugin::Passphrase::Hashed;
 
-our $VERSION = '3.0.1';
+our $VERSION = '3.0.2';
 
 register passphrase => \&passphrase;
 
@@ -73,14 +73,19 @@ object that you can generate a new hash from, or match against a stored hash.
 
 =cut
 
+my $settings = {};
+
+on_plugin_import {
+    $settings  = plugin_setting()
+        unless $settings->{'algorithm'};
+    $settings->{'algorithm'} = 'Bcrypt';
+};
+
 sub passphrase {
     my ($dsl, $plaintext) = @_;
 
-    my $settings  = plugin_setting();
-    my $algorithm = $settings->{'algorithm'} || 'Bcrypt';
-
     return Dancer2::Plugin::Passphrase::Core->new(
-        algorithm => $algorithm,
+        algorithm => $settings->{'algorithm'},
         plaintext => $plaintext,
 
         %{$settings},
