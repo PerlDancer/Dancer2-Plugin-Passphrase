@@ -6,6 +6,29 @@ use Digest;
 use MIME::Base64 qw(decode_base64 encode_base64);
 use Data::Entropy::Algorithms qw(rand_bits rand_int);
 
+# ABSTRACT: Passphrases and Passwords as objects for Dancer2
+
+=head1 NAME
+
+Dancer2::Plugin::Passphrase::Core - Core package for Dancer2::Plugin::Passphrase.
+
+=head1 DESCRIPTION
+
+B<FOR INTERNAL USE ONLY>
+
+=head1 AUTHOR
+
+Maintainer: Henk van Oers <hvoers@cpan.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2012 by James Aitken.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=cut
+
 sub new {
     my $class = shift;
     my @args  = @_;
