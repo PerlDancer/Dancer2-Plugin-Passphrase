@@ -3,6 +3,49 @@ use strict;
 use warnings;
 use MIME::Base64 qw(encode_base64);
 
+# ABSTRACT: Passphrases and Passwords as objects for Dancer2
+
+=head1 NAME
+
+Dancer2::Plugin::Passphrase::Hashed - Helper package for Dancer2::Plugin::Passphrase.
+
+=head1 METHODS
+
+=head2 rfc2307()
+
+=head2 scheme()
+
+=head2 algorithm()
+
+=head2 cost()
+
+=head2 plaintext()
+
+=head2 salt_raw()
+
+=head2 hash_raw()
+
+=head2 salt_hex()
+
+=head2 hash_hex()
+
+=head2 salt_base64()
+
+=head2 hash_base64()
+
+=head1 AUTHOR
+
+Maintainer: Henk van Oers <hvoers@cpan.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2012 by James Aitken.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=cut
+
 sub new {
     my $class = shift;
     my @args  = @_;
