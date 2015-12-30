@@ -1,3 +1,7 @@
+3.2.2	2015-12-30
+    [ D2P2 ]
+Compatible with the new Dancer2::Plugin2
+
 3.0.2	2015-03-10
     [ NICE! ]
 Move plugin_setting to on_plugin_import.
