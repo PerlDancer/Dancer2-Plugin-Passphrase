@@ -14,7 +14,7 @@ WriteMakefile(
     PL_FILES         => {},
     PREREQ_PM => {
         'Test::More' => 0,
-        'Dancer2'    => 0.164000,
+        'Dancer2'    => '0.166002',
         'Digest::Bcrypt' => 0,
         'Digest::SHA' => 5.74,
         'Data::Entropy' => 0.007,
