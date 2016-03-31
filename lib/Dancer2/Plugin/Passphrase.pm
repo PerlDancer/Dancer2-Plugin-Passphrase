@@ -3,13 +3,13 @@ package Dancer2::Plugin::Passphrase;
 use 5.010001;
 use strict;
 use warnings;
-use Dancer2::Plugin;
 use Dancer2::Plugin::Passphrase::Core;
 use Dancer2::Plugin::Passphrase::Hashed;
+use Dancer2::Plugin;
 
 our $VERSION = '3.2.2';
 
-register passphrase => \&passphrase;
+plugin_keywords 'passphrase';
 
 # ABSTRACT: Passphrases and Passwords as objects for Dancer2
 
@@ -73,26 +73,20 @@ object that you can generate a new hash from, or match against a stored hash.
 
 =cut
 
-my $settings = {};
-
-on_plugin_import {
-    $settings  = plugin_setting()
-        unless $settings->{'algorithm'};
-    $settings->{'algorithm'} = 'Bcrypt';
-};
+has algorithm => (
+    is          => 'ro',
+    from_config => sub { 'Bcrypt' },
+);
 
 sub passphrase {
-    my ($dsl, $plaintext) = @_;
+    my ($plugin, $plaintext) = @_;
 
     return Dancer2::Plugin::Passphrase::Core->new(
-        algorithm => $settings->{'algorithm'},
+        %{$plugin->config},
+        algorithm => $plugin->algorithm,
         plaintext => $plaintext,
-
-        %{$settings},
     );
 }
-
-register_plugin;
 
 1;
 
@@ -329,7 +323,7 @@ a strong psuedo-random salt.
 
     plugins:
         Passphrase:
-            default: Bcrypt
+            algorithm: Bcrypt
 
             Bcrypt:
                 cost: 8
@@ -469,7 +463,7 @@ Maintainer: Henk van Oers <hvoers@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by James Aitken.
+This software is copyright (c) 2012-2016 by James Aitken.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
