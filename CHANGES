@@ -1,3 +1,9 @@
+3.3.0   2016-10-04
+
+    [ D2P2 ]
+
+No longer compatible with Dancer2 prior to plugin2 release.
+
 3.2.2	2015-12-30
     [ D2P2 ]
 Compatible with the new Dancer2::Plugin2
