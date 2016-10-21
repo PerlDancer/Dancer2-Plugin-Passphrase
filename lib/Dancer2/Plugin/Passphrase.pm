@@ -152,7 +152,7 @@ This is the format created by L<generate()|/"passphrase__generate">
 =head2 generate_random
 
 Generates and returns any number of cryptographically random
-characters from the url-safe base64 charater set.
+characters from the url-safe base64 character set.
 
     my $rand_pass = passphrase->generate_random;
 
@@ -400,7 +400,7 @@ the correct MD5 hash without using the correct password.
 SHA isn't quite as broken as MD5, but it shares the same theoretical 
 weaknesses. Even without hash collisions, it is vulnerable to brute forcing.
 Modern hardware is so powerful it can try around a billion hashes a second. 
-That means every 7 chracter password in the range [A-Za-z0-9] can be cracked 
+That means every 7 character password in the range [A-Za-z0-9] can be cracked 
 in one hour on your average desktop computer.
 
 =item If the only way to break the hash is to brute-force it, it's secure enough
@@ -423,7 +423,7 @@ or
 
     Input must contain only octets
 
-The C<MD5>, C<bcrypt>, and C<SHA> algorithms can't handle chracters with an ordinal
+The C<MD5>, C<bcrypt>, and C<SHA> algorithms can't handle characters with an ordinal
 value above 255, producing errors like this if they encounter them.
 It is not possible for this plugin to automagically work out the correct
 encoding for a given string.
