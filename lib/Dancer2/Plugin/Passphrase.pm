@@ -458,6 +458,14 @@ Maintainer: Henk van Oers <hvoers@cpan.org>
 
 =item Sawyer X for his D2 magic.
 
+=item Mohammad S Anwar (GH#4)
+
+=item Jim Davis (GH#5)
+
+=item Peter Mottram (GH#11)
+
+=item Nuno Carvalho (GH#12)
+
 =back
 
 =head1 COPYRIGHT AND LICENSE
