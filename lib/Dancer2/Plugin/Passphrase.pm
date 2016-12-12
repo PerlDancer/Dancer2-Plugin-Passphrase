@@ -1,6 +1,5 @@
 package Dancer2::Plugin::Passphrase;
 
-use 5.010001;
 use strict;
 use warnings;
 use Dancer2::Plugin::Passphrase::Core;
