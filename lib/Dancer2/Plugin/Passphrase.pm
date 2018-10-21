@@ -462,10 +462,6 @@ see L<http://training.perl.com/OSCON2011/index.html>
 L<Dancer2>, L<Digest>, L<Crypt::Eksblowfish::Bcrypt>
 
 
-=head1 AUTHOR
-
-Maintainer: Henk van Oers <hvoers@cpan.org>
-
 =head1 ACKNOWLEDGMENTS
 
 =over
@@ -482,11 +478,15 @@ Maintainer: Henk van Oers <hvoers@cpan.org>
 
 =item Nuno Carvalho (GH#12)
 
+=item Tom Adams (fix generate docs)
+
 =back
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012-2016 by James Aitken.
+Copyright (c) 2016-2018 Peter Mottram <peter@sysnix.com>.
+Copyright (c) 2016 Henk van Oers <hvo.pm@xs4all.nl>.
+Copyright (c) 2012-2016 James Aitken.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
