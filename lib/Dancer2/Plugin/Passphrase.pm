@@ -100,6 +100,8 @@ that is suitable for storage in a database.
 
     my $phrase = passphrase('my passphrase')->generate;
 
+It returns a Dancer2::Plugin::Passphrase::Hashed object.
+
 You should store C<$phrase->rfc_2307()> in your database.
 
 Accepts a hashref of options to specify what kind of hash should be 
@@ -108,16 +110,30 @@ generated. All options settable in the config file are valid.
 If you specify only the algorithm, the default settings for that algorithm will be used.
 
 A cryptographically random salt is used if salt is not defined.
-Only if you specify the empty string will an empty salt be used
-This is not recommended, and should only be used to upgrade old insecure hashes
+Only if you specify the empty string will an empty salt be used.
+This is not recommended, and should only be used to upgrade old insecure hashes.
 
-    my $phrase = passphrase('my password')->generate({
-        algorithm  => '',   # What algorithm is used to generate the hash
-        cost       => '',   # Cost / Work Factor if using bcrypt
-        salt       => '',   # Manually specify salt if using a salted digest
-    });
+    my $phrase = passphrase('my password')->generate(
+        {
+            algorithm  => $algo_name,   # override algo from config
+            $algo_name => {
+                # override options for this algorithm
+                $opt1 => $value1,
+            },
+        }
+    );
 
-It returns a Dancer2::Plugin::Passphrase::Hashed object.
+So for Bcrypt this might be:
+
+
+    my $phrase = passphrase('my password')->generate(
+        {
+            algorith => 'Bcrypt',
+            Bcrypt   => {
+                cost => 14,
+            }
+        }
+    );
 
 =head2 matches
 
