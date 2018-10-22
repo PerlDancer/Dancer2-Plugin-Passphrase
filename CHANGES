@@ -1,5 +1,9 @@
 Revision history for Dancer2-Plugin-Passphrase
 
+3.3.3 Mon 22 Oct 15:00:50 CEST 2018
+
+    * Fix typos in documentation (Mohammad S Anwar)
+
 3.3.2 Sun 21 Oct 13:40:45 CEST 2018
 
     * Fix typos in documentation (GH#12 Nuno Carvalho)

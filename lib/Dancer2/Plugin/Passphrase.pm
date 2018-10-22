@@ -6,7 +6,7 @@ use Dancer2::Plugin::Passphrase::Core;
 use Dancer2::Plugin::Passphrase::Hashed;
 use Dancer2::Plugin;
 
-our $VERSION = '3.3.2';
+our $VERSION = '3.3.3';
 
 plugin_keywords 'passphrase';
 
