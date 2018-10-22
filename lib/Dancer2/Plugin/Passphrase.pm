@@ -102,7 +102,7 @@ that is suitable for storage in a database.
 
 It returns a Dancer2::Plugin::Passphrase::Hashed object.
 
-You should store C<$phrase->rfc_2307()> in your database.
+You should store C<$phrase-E<gt>rfc_2307()> in your database.
 
 Accepts a hashref of options to specify what kind of hash should be 
 generated. All options settable in the config file are valid.
@@ -128,7 +128,7 @@ So for Bcrypt this might be:
 
     my $phrase = passphrase('my password')->generate(
         {
-            algorith => 'Bcrypt',
+            algorithm => 'Bcrypt',
             Bcrypt   => {
                 cost => 14,
             }
@@ -214,7 +214,7 @@ The scheme name can be any of the following, and will always be capitalized
 
 Returns the algorithm name from a C<Dancer2::Plugin::Passphrase> object.
 
-The algorithm name can be anything that is accepted by C<Digest->new($alg)>
+The algorithm name can be anything that is accepted by C<Digest-E<gt>new($alg)>
 This includes any modules in the C<Digest::> Namespace
 
     passphrase('my password')->generate->algorithm;
