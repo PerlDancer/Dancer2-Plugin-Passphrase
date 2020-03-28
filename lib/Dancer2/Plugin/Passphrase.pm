@@ -339,9 +339,7 @@ a strong psuedo-random salt.
     plugins:
         Passphrase:
             algorithm: Bcrypt
-
-            Bcrypt:
-                cost: 8
+            cost: 8
 
 
 =head2 Storage in a database
