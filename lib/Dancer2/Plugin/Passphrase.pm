@@ -16,6 +16,11 @@ plugin_keywords 'passphrase';
 
 Dancer2::Plugin::Passphrase - Passphrases and Passwords as objects for Dancer2
 
+=head1 DEPRECATION WARNING
+
+B<NOTE:> This module is DEPRECATED, and it is advised that you switch
+to L<Dancer2::Plugin::CryptPassphrase> if possible.
+
 =head1 SYNOPSIS
 
 This plugin manages the hashing of passwords for Dancer2 apps, allowing 
